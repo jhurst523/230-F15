@@ -7,7 +7,7 @@ public class LinkedStack<T> implements Stack<T> {
 	
 	@Override
 	public void push(T newEntry) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method
 		
 	}
 
