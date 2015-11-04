@@ -4,35 +4,54 @@ import adt.Stack;
 
 public class LinkedStack<T> implements Stack<T> {
 	private Node top;
+	private int n;
 	
 	@Override
 	public void push(T newEntry) {
 		// TODO Auto-generated method
-		
+		if (!isEmpty()) {
+			top = new Node(newEntry, top);
+		    System.out.println(newEntry);
+		    n++;
+		}
 	}
 
 	@Override
 	public T pop() {
-		// TODO Auto-generated method stub
+		if (isEmpty()) {
+			T data = top.data;
+			top = top.next;
+			n--;
+			return data;
+			// TODO Auto-generated method stub
+		}
 		return null;
 	}
 
 	@Override
 	public T peek() {
-		// TODO Auto-generated method stub
+		if (isEmpty()) {
+			return top.data;// TODO Auto-generated method stub
+		}
 		return null;
 	}
 
 	@Override
 	public boolean isEmpty() {
+		Node n = top;
+		int count = 0;
+		while (n.equals(top)){
+			return true;
+			
+		}
+		
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		T data = null;
 	}
 	
 	public String toString() {

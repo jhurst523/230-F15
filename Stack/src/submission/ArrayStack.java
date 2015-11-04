@@ -8,20 +8,25 @@ public class ArrayStack<T> implements Stack<T> {
 
 	@Override
 	public void push(T newEntry) {
-		// TODO Auto-generated method stub
+		 if (top == data.length) 
+	      data[top] = (T) data;
+	      top++;// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public T pop() {
-		// TODO Auto-generated method stub
+		if( isEmpty( ) )
+        top--;// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public T peek() {
-		// TODO Auto-generated method stub
-		return null;
+		if (isEmpty()){
+			return data.length(T);
+		}
+		// TODO Auto-generated method stu
 	}
 
 	@Override
@@ -42,6 +47,22 @@ public class ArrayStack<T> implements Stack<T> {
 			s += "| " + data[i] + " |\n";
 		s+= "+++++\n";
 		return s;
+	}
+	
+	 private void doubleArray( )
+	    {
+	        Object [ ] newArray;
+
+	        newArray = new Object[ data.length * 2 ];
+	        for( int i = 0; i < data.length; i++ )
+	            newArray[ i ] = data[ i ];
+	        data = newArray;
+	    }
+
+	@Override
+	public void push(AnyType newEntry) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
