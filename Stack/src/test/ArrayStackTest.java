@@ -1,7 +1,9 @@
 package test;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
+
 import adt.Stack;
 import submission.ArrayStack;
 
@@ -38,9 +40,10 @@ public class ArrayStackTest {
 		stack.clear();
 		stack.push("A");
 		stack.push("C");
-		stack.pop();
+		String t = stack.pop();
 		String s = "| A |\n+++++\n";
 		assertTrue(stack.toString().equals(s));
+		assertTrue(t.equals("C"));
 	}
 	
 	@Test
@@ -55,8 +58,10 @@ public class ArrayStackTest {
 		stack.clear();
 		stack.push("A");
 		stack.push("C");
-		stack.peek();
-		stack.peek();
+		String t = stack.peek();
+		assertTrue(t.equals("C"));
+		t = stack.peek();
+		assertTrue(t.equals("C"));
 		String s = "| C |\n| A |\n+++++\n";
 		assertTrue(stack.toString().equals(s));
 	}
@@ -67,8 +72,8 @@ public class ArrayStackTest {
 		stack.clear();
 		String s = "";
 		for (int i = 0; i < MAX_CAPACITY; i++) {
-			stack.push("X");
-			s += "| X |\n";
+			stack.push(Integer.toString(i));
+			s = "| " + i + " |\n" + s;
 		}
 		s += "+++++\n";
 		assertTrue(stack.toString().equals(s));

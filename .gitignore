@@ -5,3 +5,6 @@ RemoteSystemsTempFiles
 MyArrayStack.java
 MyLinkedStack.java
 MyPalindrome.java
+MyArrayQueue.java
+MyLinkedQueue.java
+/bin/
