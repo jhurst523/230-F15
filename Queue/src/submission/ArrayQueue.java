@@ -8,31 +8,45 @@ public class ArrayQueue<T> implements Queue<T> {
 	
 	@Override
 	public void enqueue(T newEntry) {
-		
-		
+		if (tail == data.length) 
+	      data[tail] = newEntry;
+	      head++;
 	}
 
 	@Override
 	public T dequeue() {
-		// TODO Auto-generated method stub
-		return null;
+		if (isEmpty()) {
+			int head = 0;
+			tail--;
+		}
+		for (head = 0; head < tail; head++)
+		      data[head] = data[head+1];
+		data[tail] = null;     
+		return (T) data;
 	}
 
 	@Override
 	public T peek() {
-		// TODO Auto-generated method stub
+		if (isEmpty())
+		return data[0];
+		else
 		return null;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
+		if (tail == 0) {
+			return true;
+		}
 		return false;
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
+		for(int i = 0; i < tail; i++) 
+			data[i] = null;
+
+		tail = -1; head = 0;
 		
 	}
 	
