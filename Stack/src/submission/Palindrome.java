@@ -2,7 +2,14 @@ package submission;
 
 public class Palindrome {
 	public static boolean isPalindrome(String s) {
-		// TODO use a stack to determine if s is palindrome
+		int i = 0;
+		int j = s.length() - 1;
+		while(i < j){
+			if(s.charAt(i) != s.charAt(j))
 		return false;
-	}
+		i++;
+		j--;
+		}
+		return true;
+}
 }
