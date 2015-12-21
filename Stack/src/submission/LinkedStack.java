@@ -6,52 +6,42 @@ public class LinkedStack<T> implements Stack<T> {
 	private Node top;
 	private int n;
 	
+	public LinkedStack()
+	{
+	top = null;
+	}
+	
 	@Override
 	public void push(T newEntry) {
 		// TODO Auto-generated method
-		if (!isEmpty()) {
-			top = new Node(newEntry, top);
-		    System.out.println(newEntry);
-		    n++;
-		}
+		Node newNode = new Node(newEntry, top);
+		top = newNode;
 	}
 
 	@Override
 	public T pop() {
-		if (isEmpty()) {
-			T data = top.data;
-			top = top.next;
-			n--;
-			return data;
-			// TODO Auto-generated method stub
-		}
-		return null;
+		T topp = peek();
+		if (top != null)
+		top = top.next;
+		return topp;
 	}
 
 	@Override
 	public T peek() {
-		if (isEmpty()) {
-			return top.data;// TODO Auto-generated method stub
-		}
-		return null;
+		T topp = null;
+		if (top != null)
+			topp = top.data;
+			return topp;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		Node n = top;
-		int count = 0;
-		while (n.equals(top)){
-			return true;
-			
-		}
-		
-		// TODO Auto-generated method stub
-		return false;
+		return top == null;
 	}
 
 	@Override
 	public void clear() {
-		T data = null;
+		top = null;
 	}
 	
 	public String toString() {
@@ -71,7 +61,7 @@ public class LinkedStack<T> implements Stack<T> {
 		{
 			this(dataPortion, null);	
 		} // end constructor
-		
+
 		private Node(T dataPortion, Node nextNode)
 		{
 			data = dataPortion;
